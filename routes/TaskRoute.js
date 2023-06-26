@@ -1,8 +1,8 @@
 const Router = require("express").Router();
-const TaskController = require('../controllers/TaskController');
+const TaskController = require("../controllers/TaskController");
+const TaskCreateValidation = require("../validations/TaskCreateValidation");
 
-// Router.get('/fetch-all', TaskController.fetchAll);
-
-Router.post('/create', TaskController.create);
+Router.get("/list", TaskController.list);
+Router.post("/create", TaskCreateValidation, TaskController.create);
 
 module.exports = Router;
